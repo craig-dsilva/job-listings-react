@@ -1,14 +1,76 @@
 .App {
   text-align: center;
+  --theme-color: hsl(180, 29%, 50%);
+}
+
+.header {
+  padding: 5em;
 }
 
 .job {
-  width: 90%;
+  width: 80%;
   margin: auto;
   border-radius: 2%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  margin-bottom: 5em;
+  padding: 3em;
+  text-align: left;
+  color: #4f4f4f;
 }
 
-.job hr {
-  width: 90%;
+.job.featured-border {
+  border-left: 10px solid var(--theme-color);
+}
+
+.new-keyword,
+.featured-keyword,
+.job-tag {
+  margin-right: 5em;
+  margin-bottom: 1.5em;
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 0 1em;
+}
+
+.job-keywords {
+  display: flex;
+  color: #fff;
+}
+
+.new-keyword {
+  background-color: var(--theme-color);
+  margin-right: 1em;
+}
+
+.featured-keyword {
+  background-color: #000;
+}
+
+.job-info {
+  margin-top: -5em;
+}
+
+.job-company {
+  color: var(--theme-color);
+}
+
+.job-position,
+.job-logo {
+  grid-column: 1/4;
+}
+
+.job-description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-tags {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  margin: 2em 0;
+}
+
+.job-tag {
+  background-color: #ececec;
+  color: var(--theme-color);
 }
