@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import Filters from "./Filters";
 
+import Context from "./Context";
+
 import data from "./data/data.json";
 
 import "./App.css";
@@ -11,25 +13,28 @@ function App() {
   const [jobs, setJobs] = useState(data);
   const [keywords, setKeywords] = useState([]);
 
-  const addFilter = () => {
+  const addFilter = (keyword) => {
     const copyOfKeywords = [...keywords];
-    // Push
+    if (!copyOfKeywords.includes(keyword)) {
+      copyOfKeywords.push(keyword);
+    }
     setKeywords(copyOfKeywords);
     setJobs(
       data.filter((job) => {
-        return keywords.includes(job.role) || keywords.includes(job.level);
+        return (
+          copyOfKeywords.includes(job.role) ||
+          copyOfKeywords.includes(job.level)
+        );
       })
     );
   };
 
-  console.log(jobs);
-
   return (
-    <div className="App">
+    <Context.Provider value={addFilter} className="App">
       <header className="header"></header>
-      <Filters />
+      <Filters keywords={keywords} />
       <Jobs jobs={jobs} />
-    </div>
+    </Context.Provider>
   );
 }
 
