@@ -6,13 +6,13 @@ const JobTag = (props) => {
   const ctx = useContext(Context);
 
   return typeof props.tagType === "string" ? (
-    <div className="job-tag" onClick={() => ctx(props.tagType)}>
+    <div className="job-tag" onClick={() => ctx.addFilter(props.tagType)}>
       <p>{props.tagType}</p>
     </div>
   ) : (
     props.tagType.map((tag, index) => {
       return (
-        <div className="job-tag" key={index} onClick={() => ctx(tag)}>
+        <div className="job-tag" key={index} onClick={() => ctx.addFilter(tag)}>
           <p>{tag}</p>
         </div>
       );

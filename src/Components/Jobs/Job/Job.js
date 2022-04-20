@@ -8,8 +8,8 @@ const Job = ({ data }) => {
         <img className="job-logo" src={data.logo} alt={data.company} />
         <h3 className="job-company">{data.company}</h3>
         <div className="job-keywords">
-          {data.new ? <p className="new-keyword">New</p> : ""}
-          {data.featured ? <p className="featured-keyword">Featured</p> : ""}
+          {data.new ? <p className="new-keyword">NEW!</p> : ""}
+          {data.featured ? <p className="featured-keyword">FEATURED</p> : ""}
         </div>
         <h4 className="job-position">{data.position}</h4>
         <div className="job-description">
